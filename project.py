@@ -1,0 +1,70 @@
+import networkx as nx
+from pprint import pprint
+import operator
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+
+def loadData(directoryPath):
+    files = os.listdir(directoryPath)
+    allGraphsOfEachTopic = {}
+    for file in files:
+        topic = ""
+        if "T16" in file:
+            topic = "Data Mining/Association Rules"
+        elif "T107" in file:
+            topic = "Web Services"
+        elif "T131" in file:
+            topic = "Bayesian Networks/Belief function"
+        elif "T144" in file:
+            topic = "Web Mining/Information Fusion"
+        elif "T145" in file:
+            topic = "Semantic Web/Description Logics"
+        elif "T162" in file:
+            topic = "Machine Learning"
+        elif "T24" in file:
+            topic = "Database Systems/XML Data"
+        elif "T75" in file:
+            topic = "Information Retrieval"
+        else:
+            topic = "Unknown"
+
+        graphToBuild = nx.Graph()
+ 
+        # constant
+        VERTICE = 0
+        EDGE = 1
+        TRIANGLE = 2
+        
+        f = open(file)
+        for line in f:
+            if "*Vertices" in line:
+                typeOfLine = VERTICE
+            elif "*Edges" in line:
+                typeOfLine = EDGE
+            elif "*Triangles" in line:
+                typeOfLine = TRIANGLE
+            else:
+                if typeOfLine == VERTICE:
+                    graph_edge_list = line.split()
+                    # TOCOMPLETE
+                    
+                elif typeOfLine == EDGE:
+                    graph_edge_list = line.split()
+                    graphToBuild.add_edge(graph_edge_list[0], graph_edge_list[1], coauthoredPapers=graph_edge_list[2])             
+                elif typeOfLine == TRIANGLE:
+                    graph_edge_list = line.split()
+                    graphToBuild.add_edge(graph_edge_list[0], graph_edge_list[1], coauthoredPapersTriangle=graph_edge_list[3])
+                    graphToBuild.add_edge(graph_edge_list[0], graph_edge_list[2], coauthoredPapersTriangle=graph_edge_list[3])
+                    graphToBuild.add_edge(graph_edge_list[1], graph_edge_list[2], coauthoredPapersTriangle=graph_edge_list[3])
+                    
+        if topic in allGraphsOfEachTopic:
+            allGraphsOfEachTopic[topic].append(graphToBuild)
+        else:
+            allGraphsOfEachTopic[topic] = [graphToBuild]
+
+
+    return allGraphsOfEachTopic
+    print(files)
+
+loadData("./data")
