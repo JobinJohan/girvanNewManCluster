@@ -8,6 +8,7 @@ import re
 
 def loadData(directoryPath):
     files = os.listdir(directoryPath)
+    print(files)
     allGraphsOfEachTopic = {}
     for file in files:
         topic = ""
@@ -37,7 +38,8 @@ def loadData(directoryPath):
         EDGE = 1
         TRIANGLE = 2
 
-        f = open(file)
+        f = open("./data/" + file)
+        print(file)
         # Vertices: Int "String" Int -> NodeID, personName, #papers
         # Edges: Int Int Int -> sourceNodeID, DestNodeID, #coauthoredPapers
         # Triangles: Int,Int,Int,Int -> NodeID1, NodeID2, NodeID3, #coauthoredPapers
@@ -54,6 +56,7 @@ def loadData(directoryPath):
                     graphToBuild.add_node(graph_edge_list[0], name=graph_edge_list[1], nbpapers=graph_edge_list[2])
                 elif typeOfLine == EDGE:
                     graph_edge_list = line.split()
+                    print(graph_edge_list)
                     graphToBuild.add_edge(graph_edge_list[0], graph_edge_list[1], coauthoredPapers=graph_edge_list[2])
                 elif typeOfLine == TRIANGLE:
                     graph_edge_list = line.split(',')
@@ -68,4 +71,5 @@ def loadData(directoryPath):
 
     return allGraphsOfEachTopic
 
-loadData("./data")
+test = loadData("./data")
+print(test)
