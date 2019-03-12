@@ -8,7 +8,7 @@ import re
 
 def loadData(directoryPath):
     files = os.listdir(directoryPath)
-    print(files)
+    # print(files)
     allGraphsOfEachTopic = {}
     for file in files:
         topic = ""
@@ -39,7 +39,7 @@ def loadData(directoryPath):
         TRIANGLE = 2
 
         f = open("./data/" + file)
-        print(file)
+
         # Vertices: Int "String" Int -> NodeID, personName, #papers
         # Edges: Int Int Int -> sourceNodeID, DestNodeID, #coauthoredPapers
         # Triangles: Int,Int,Int,Int -> NodeID1, NodeID2, NodeID3, #coauthoredPapers
@@ -56,7 +56,6 @@ def loadData(directoryPath):
                     graphToBuild.add_node(graph_edge_list[0], name=graph_edge_list[1], nbpapers=graph_edge_list[2])
                 elif typeOfLine == EDGE:
                     graph_edge_list = line.split()
-                    print(graph_edge_list)
                     graphToBuild.add_edge(graph_edge_list[0], graph_edge_list[1], coauthoredPapers=graph_edge_list[2])
                 elif typeOfLine == TRIANGLE:
                     graph_edge_list = line.split(',')
@@ -71,5 +70,24 @@ def loadData(directoryPath):
 
     return allGraphsOfEachTopic
 
+
+def betweennessCentrality(graph, node):
+    centrality = 0
+    nodes = list(graph.nodes())
+
+    for vi in range(len(nodes)-1):
+        for vj in range(vi+1, len(nodes)):
+            if(nodes[vi] == node or nodes[vj] == node):
+                continue
+
+            shortestPaths = list(nx.all_shortest_paths(graph, source=nodes[vi], target=nodes[vj]))
+            nbPathsIncludingNode = sum(path.count(node) for path in shortestPaths)
+            centrality += nbPathsIncludingNode / len(shortestPaths)
+
+    return centrality
+
+
+
 test = loadData("./data")
-print(test)
+graph = test['Bayesian Networks/Belief function'][0]
+print(betweennessCentrality(graph, '1'))
