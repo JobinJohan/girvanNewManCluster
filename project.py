@@ -8,7 +8,7 @@ import re
 
 def loadData(directoryPath):
     files = os.listdir(directoryPath)
-    # print(files)
+    # dictionary wrt to the following format: {topic1:[[network1],[network2]]}
     allGraphsOfEachTopic = {}
     for file in files:
         topic = ""
@@ -70,8 +70,8 @@ def loadData(directoryPath):
 
     return allGraphsOfEachTopic
 
-
-def betweennessCentrality(graph, node):
+# Compute the betweenness centrality of a given node: not used in this project
+def nodesBetweennessCentrality(graph, node):
     centrality = 0
     nodes = list(graph.nodes())
 
@@ -83,11 +83,72 @@ def betweennessCentrality(graph, node):
             shortestPaths = list(nx.all_shortest_paths(graph, source=nodes[vi], target=nodes[vj]))
             nbPathsIncludingNode = sum(path.count(node) for path in shortestPaths)
             centrality += nbPathsIncludingNode / len(shortestPaths)
-
     return centrality
 
 
 
+
+# Function that computes the betweenness centrality of a given edge
+def edgesBetweenessCentrality(graph, edge):
+    centrality = 0
+    nodes = list(graph.nodes())
+
+    for vi in range(len(nodes) - 1):
+        for vj in range(vi + 1, len(nodes)):
+            try:
+                shortestPaths = list(nx.all_shortest_paths(graph, source=nodes[vi], target=nodes[vj]))
+                nbPathsIncludingEdge = sum(edgeIsInPath([edge[0], edge[1]], path) for path in shortestPaths)
+                centrality += nbPathsIncludingEdge / len(shortestPaths)                
+            except nx.NetworkXNoPath:
+                continue
+    return centrality
+
+
+# Function that checks if an edge is contained in a path of an undirected graph (the path is a list of nodes)
+def edgeIsInPath(edge, path):
+    pathReversed = list(reversed(path))
+    n = len(edge)
+    
+    if edge in (path[i:i + n] for i in range(len(path) + 1 - n)) or edge in (pathReversed[j:j + n] for j in range(len(pathReversed) + 1 - n)):
+        return 1
+    else:
+        return 0
+
+# Function that draws the given graph and displays the labels of each edge
+def drawGraph(G):
+    pos = nx.spring_layout(G)
+    nx.draw(G, pos, with_labels=True)
+    nx.draw_networkx_edge_labels(G, pos)
+    plt.show()
+
+# Implementation of the Girvan-Newman clustering algorithm
+def girvanNewmanClustering(graph, nbIteration):
+    edges = list(graph.edges)
+
+    if len(edges) == 0:
+        return "Empty graph"
+
+    while(len(list(graph.edges)) > 0 and nbIteration > 0):
+        nbIteration = nbIteration - 1
+        highestEdge = ""
+        highestScore = -float('inf')
+        for edge in edges:
+            score = edgesBetweenessCentrality(graph, edge)
+            if score > highestScore:
+                highestScore = score
+                highestEdge = edge
+
+        graph.remove_edge(highestEdge[0], highestEdge[1])
+        drawGraph(graph)
+
+
+# ----------------- MAIN ------------------------------------
+
 test = loadData("./data")
-graph = test['Bayesian Networks/Belief function'][0]
-print(betweennessCentrality(graph, '1'))
+drawGraph(test['Web Mining/Information Fusion'][2])
+graph = test['Web Mining/Information Fusion'][2]
+
+# Expected betweenness 24 (see graph on draw.io)
+#print(edgesBetweenessCentrality(graph, ('4', '5')))
+girvanNewmanClustering(graph, 10)
+
