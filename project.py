@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import re
+import math
 
 def loadData(directoryPath):
     files = os.listdir(directoryPath)
@@ -98,7 +99,7 @@ def edgesBetweenessCentrality(graph, edge):
             try:
                 shortestPaths = list(nx.all_shortest_paths(graph, source=nodes[vi], target=nodes[vj]))
                 nbPathsIncludingEdge = sum(edgeIsInPath([edge[0], edge[1]], path) for path in shortestPaths)
-                centrality += nbPathsIncludingEdge / len(shortestPaths)                
+                centrality += nbPathsIncludingEdge / len(shortestPaths)
             except nx.NetworkXNoPath:
                 continue
     return centrality
@@ -108,7 +109,7 @@ def edgesBetweenessCentrality(graph, edge):
 def edgeIsInPath(edge, path):
     pathReversed = list(reversed(path))
     n = len(edge)
-    
+
     if edge in (path[i:i + n] for i in range(len(path) + 1 - n)) or edge in (pathReversed[j:j + n] for j in range(len(pathReversed) + 1 - n)):
         return 1
     else:
@@ -121,9 +122,19 @@ def drawGraph(G):
     nx.draw_networkx_edge_labels(G, pos)
     plt.show()
 
+def drawGraphs(G, cnt):
+    plt.subplot(4, 3, cnt)
+    pos = nx.spring_layout(G)
+    nx.draw_networkx(G, pos, with_labels=True)
+    nx.draw_networkx_edge_labels(G, pos)
+
+
 # Implementation of the Girvan-Newman clustering algorithm
 def girvanNewmanClustering(graph, nbIteration):
     edges = list(graph.edges)
+    fig = plt.figure(figsize=(50,50))
+    drawGraphs(graph, 1)
+    cnt = 2
 
     if len(edges) == 0:
         return "Empty graph"
@@ -139,16 +150,18 @@ def girvanNewmanClustering(graph, nbIteration):
                 highestEdge = edge
 
         graph.remove_edge(highestEdge[0], highestEdge[1])
-        drawGraph(graph)
+        drawGraphs(graph, cnt)
+        cnt += 1
+
+    plt.savefig("fig.png")
 
 
 # ----------------- MAIN ------------------------------------
 
 test = loadData("./data")
-drawGraph(test['Web Mining/Information Fusion'][2])
+# drawGraph(test['Web Mining/Information Fusion'][2])
 graph = test['Web Mining/Information Fusion'][2]
 
 # Expected betweenness 24 (see graph on draw.io)
 #print(edgesBetweenessCentrality(graph, ('4', '5')))
 girvanNewmanClustering(graph, 10)
-
