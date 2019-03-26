@@ -158,13 +158,34 @@ def girvanNewmanClustering(graph, nbIteration):
 
     plt.savefig("fig.png")
 
+def pageRankCentrality(graph, alpha, beta):
+    # Transposition of matrix
+    adjacencyMatrix = nx.to_numpy_matrix(graph, weight='None')
+    amTransposed = np.transpose(adjacencyMatrix)
+
+    # Diagonal Matrix
+    diagonalMatrix = np.zeros([adjacencyMatrix.shape[0], adjacencyMatrix.shape[1]])
+    row, col = np.diag_indices(diagonalMatrix.shape[0])
+    # Compute the values that have to be filled into the diagonal
+    diagonalMatrix[row, col] = [1 / degree[1] for degree in list(graph.degree())]
+
+    # Identity matrix
+    identityMatrix = np.identity(adjacencyMatrix.shape[0])
+
+    # Vector of ones
+    ones = np.ones((adjacencyMatrix.shape[0], 1))
+    pageRankCentrality = np.dot(beta * np.linalg.inv((identityMatrix - np.dot(alpha * amTransposed, diagonalMatrix))), ones)
+    print(pageRankCentrality)
+    return pageRankCentrality
+
 
 # ----------------- MAIN ------------------------------------
 
 test = loadData("./data")
 # drawGraph(test['Web Mining/Information Fusion'][2])
 graph = test['Web Mining/Information Fusion'][2]
-
+graph2 = graph.copy()
 # Expected betweenness 24 (see graph on draw.io)
 #print(edgesBetweenessCentrality(graph, ('4', '5')))
 girvanNewmanClustering(graph, 10)
+pageRankCentrality(graph2, 0.95, 0.1)
