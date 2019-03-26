@@ -123,7 +123,10 @@ def drawGraph(G):
     plt.show()
 
 def drawGraphs(G, cnt):
-    plt.subplot(4, 3, cnt)
+    test = plt.subplot(4, 3, cnt)
+    test.title.set_text('State of the graph at iteration: ' + str(cnt) + ", number of communities: " + str(nx.number_connected_components(G)))
+    test.set_yticklabels([])
+    test.set_xticklabels([])
     pos = nx.spring_layout(G)
     nx.draw_networkx(G, pos, with_labels=True)
     nx.draw_networkx_edge_labels(G, pos)
@@ -132,7 +135,7 @@ def drawGraphs(G, cnt):
 # Implementation of the Girvan-Newman clustering algorithm
 def girvanNewmanClustering(graph, nbIteration):
     edges = list(graph.edges)
-    fig = plt.figure(figsize=(50,50))
+    fig = plt.figure(figsize=(50, 50))
     drawGraphs(graph, 1)
     cnt = 2
 
