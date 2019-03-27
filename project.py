@@ -175,17 +175,21 @@ def pageRankCentrality(graph, alpha, beta):
     # Vector of ones
     ones = np.ones((adjacencyMatrix.shape[0], 1))
     pageRankCentrality = np.dot(beta * np.linalg.inv((identityMatrix - np.dot(alpha * amTransposed, diagonalMatrix))), ones)
-    print(pageRankCentrality)
+
     return pageRankCentrality
 
 
 # ----------------- MAIN ------------------------------------
 
-test = loadData("./data")
-# drawGraph(test['Web Mining/Information Fusion'][2])
-graph = test['Web Mining/Information Fusion'][2]
-graph2 = graph.copy()
+# test = loadData("./data")
+# # drawGraph(test['Web Mining/Information Fusion'][2])
+# graph = test['Web Mining/Information Fusion'][2]
+# graph2 = graph.copy()
 # Expected betweenness 24 (see graph on draw.io)
 #print(edgesBetweenessCentrality(graph, ('4', '5')))
-girvanNewmanClustering(graph, 10)
-pageRankCentrality(graph2, 0.95, 0.1)
+graph = nx.Graph();
+graph.add_nodes_from([1,2,3,4,5])
+graph.add_edges_from([(1,2),(1,4),(1,5),(2,3),(2,5),(3,4),(3,5)])
+# graph = nx.read_edgelist('pagerank.txt', nodetype=int)
+# girvanNewmanClustering(graph, 10)
+print(pageRankCentrality(graph, 0.95, 0.1))
