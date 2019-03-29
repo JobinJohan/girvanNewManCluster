@@ -33,6 +33,7 @@ def loadData(directoryPath):
             topic = "Unknown"
 
         graphToBuild = nx.Graph()
+        graphToBuild.name = topic.replace('/', ' ').replace(' ', '')
 
         # constant
         VERTEX = 0
@@ -124,12 +125,27 @@ def drawGraph(G):
 
 def drawGraphs(G, cnt):
     test = plt.subplot(4, 3, cnt)
-    test.title.set_text('State of the graph at iteration: ' + str(cnt) + ", number of communities: " + str(nx.number_connected_components(G)))
+    if (cnt == 1):
+        test.title.set_text('Initial state of the graph')
+    else:
+        test.title.set_text('State of the graph at iteration: {}, number of communities: {}'.format(cnt-1, nx.number_connected_components(G)))
     test.set_yticklabels([])
     test.set_xticklabels([])
     pos = nx.spring_layout(G)
-    nx.draw_networkx(G, pos, with_labels=True)
+    nx.draw_networkx(G, pos)
     nx.draw_networkx_edge_labels(G, pos)
+
+# draws a graph where communities are drawn using different colors
+def drawColoredGraph(G):
+    test = plt.subplot(4,3,12)
+    test.set_yticklabels([])
+    test.set_xticklabels([])
+    test.title.set_text('Resulting communities ({})'.format(nx.number_connected_components(G)))
+    pos = nx.spring_layout(G)
+    colors = ['red', 'green', 'orange', 'cyan', 'magenta', 'yellow', 'pink', 'white', 'brown', 'wheat']
+    connected_components = nx.connected_component_subgraphs(G)
+    for index, sg in enumerate(connected_components):
+        nx.draw_networkx(sg, pos = pos, edge_color = colors[index], node_color = colors[index])
 
 
 # Implementation of the Girvan-Newman clustering algorithm
@@ -156,7 +172,10 @@ def girvanNewmanClustering(graph, nbIteration):
         drawGraphs(graph, cnt)
         cnt += 1
 
-    plt.savefig("fig.png")
+    drawColoredGraph(graph)
+
+    plt.savefig("./Figures/GirvanNewman/{}.png".format(graph.name))
+
 
 def pageRankCentrality(graph, alpha, beta):
     # Transposition of matrix
@@ -180,16 +199,21 @@ def pageRankCentrality(graph, alpha, beta):
 
 
 # ----------------- MAIN ------------------------------------
+# create output directories
+if not os.path.exists('./Figures/GirvanNewman'):
+    os.makedirs('./Figures/GirvanNewman')
 
-# test = loadData("./data")
+
+test = loadData("./data")
 # # drawGraph(test['Web Mining/Information Fusion'][2])
 # graph = test['Web Mining/Information Fusion'][2]
+graph = test['Semantic Web/Description Logics'][1]
 # graph2 = graph.copy()
 # Expected betweenness 24 (see graph on draw.io)
 #print(edgesBetweenessCentrality(graph, ('4', '5')))
-graph = nx.Graph();
-graph.add_nodes_from([1,2,3,4,5])
-graph.add_edges_from([(1,2),(1,4),(1,5),(2,3),(2,5),(3,4),(3,5)])
+# graph = nx.Graph();
+# graph.add_nodes_from([1,2,3,4,5])
+# graph.add_edges_from([(1,2),(1,4),(1,5),(2,3),(2,5),(3,4),(3,5)])
 # graph = nx.read_edgelist('pagerank.txt', nodetype=int)
-# girvanNewmanClustering(graph, 10)
-print(pageRankCentrality(graph, 0.95, 0.1))
+girvanNewmanClustering(graph, 10)
+# print(pageRankCentrality(graph, 0.95, 0.1))
