@@ -1,0 +1,44 @@
+######## Cluster  0 #######
+> Tao Wu
+
+
+######## Cluster  1 #######
+> Siu Man Lui
+
+
+######## Cluster  2 #######
+> Xiao Fang
+
+
+######## Cluster  3 #######
+> Li Chen
+
+
+######## Cluster  4 #######
+> Nan Liu
+
+
+######## Cluster  5 #######
+> Christopher C. Yang
+
+
+######## Cluster  6 #######
+> Alessandro Vespignani
+
+
+######## Cluster  7 #######
+> Tak-Lam Wong
+
+
+######## Cluster  8 #######
+> Hong Su
+
+
+######## Cluster  9 #######
+> Filippo Menczer
+
+
+######## Cluster 10 #######
+> Fu Lee Wang
+
+

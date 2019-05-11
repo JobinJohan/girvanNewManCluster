@@ -1,0 +1,27 @@
+######## Cluster  0 #######
+> Tomas Skopal
+> Michal Kratky
+> Vaclav Snasel
+
+
+######## Cluster  1 #######
+> Pavel Moravec
+
+
+######## Cluster  2 #######
+> Josef Petrak
+> Jan Nemrava
+
+
+######## Cluster  3 #######
+> Ales Keprt
+
+
+######## Cluster  4 #######
+> Vojtech Svatek
+
+
+######## Cluster  5 #######
+> Jan Martinovic
+
+

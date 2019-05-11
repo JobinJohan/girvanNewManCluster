@@ -1,0 +1,354 @@
+######## Cluster  0 #######
+> Sreangsu Acharyya
+> Lionel Villard
+> Yoshiki Mikami
+> Olfa Nasraoui
+> Ruihua Song
+> Baoyao Zhou
+> Jerome Simeon
+> Meenakshi Nagarajan
+> Maristella Matera
+> Tantek Celik
+> Andreas Harth
+> Yoelle S. Maarek
+> Shourya Roy
+> Ravi Kumar
+> Johannes Meinecke
+> Roberto De Virgilio
+> Xin-Jing Wang
+> Wee Siong Ng
+> Monica M. C. Schraefel
+> Yiqun Liu
+> Mor Naaman
+> Fabio Vitali
+> Jeremy J. Carroll
+> Matthew Richardson
+> Taher H. Haveliwala
+> Wagner Meira Jr.
+> C. Lee Giles
+> Arno Scharl
+> Pedro Valderas
+> Ping Zhong
+> Eric Lo
+> Jiangchuan Liu
+> Buddhima De Silva
+> Jianming Li
+> Luis Olsina
+> Siegfried Reich
+> Juan-Zi Li
+> Demetrius Arraes Nunes
+> Li Ding
+> Joao M. B. Cavalcanti
+> Andrea Pugliese
+> Shyong K. Lam
+> Paloma Diaz
+> Panos Kalnis
+> Kevin S. McCurley
+> Yan Qu
+> Jinlin Chen
+> David Lowe
+> Alexandros Ntoulas
+> Miguel Angel Sicilia Urban
+> Koji Hino
+> Marco Maggini
+> Davood Rafiei
+> Dieter Fensel
+> Yogesh Deshpande
+> Yeliz Yesilada
+> Krishna Bharat
+> Eric A. Brewer
+> Daniel Gruhl
+> Min Cai
+> Victoria Torres
+> Damiano Distante
+> Jie Tang
+> Bharat Kumar
+> David R. Karger
+> Jennifer Golbeck
+> Srini Narayanan
+> Bettina Berendt
+> Andreas Grunhagen
+> Edleno Silva de Moura
+> Stavros Papastavrou
+> Alfredo Cuzzocrea
+> John A. Tomlin
+> Nathalie Moreno
+> Kumar Chellapilla
+> Bamshad Mobasher
+> Daniel Oberle
+> Nicole Immorlica
+> Sriram Raghavan
+> Norazlin Yusop
+> Kunal Punera
+> Ulrich Kuster
+> Altigran Soares da Silva
+> Massimo Santini
+> Zhenglu Yang
+> Paolo Merialdo
+> Atsushi Sugiura
+> Laurent Tardif
+> Jure Leskovec
+> Shiren Ye
+> Erik Wilde
+> Martin Gaedke
+> Odysseas Papapetrou
+> Sheng Jiang
+> Jin Yu
+> Chi-Chao Chang
+> Soumen Chakrabarti
+> Pedro Peixoto
+> Alexander Loser
+> Ning Zhong
+> Prasenjit Mitra
+> Irene Garrigos
+> Wei-Ying Ma
+> Akiyo Nadamoto
+> Li Ma
+> Nelly Litvak
+> Blaz Fortuna
+> Federico Michele Facca
+> Sascha Tonnies
+> Nora Koch
+> Michael R. Lyu
+> Hasan Davulcu
+> Matthew Hurst
+> Wen-Syan Li
+> Nicholas Kushmerick
+> Min-Yen Kan
+> Michael Chun Long Yip
+> Fatih Gelgi
+> Massimiliano Albanese
+> Maria de los Angeles Martin
+> Hua-Gang Li
+> Sara Comai
+> Krishna Kummamuru
+> Irwin King
+> Jussi Kangasharju
+> Anupriya Ankolekar
+> Sarabjot S. Anand
+> Kaj Gronbak
+> Sigalit Ur
+> Yuefeng Li
+> Lars Rasmussen
+> Sebastiano Vigna
+> Christian Bizer
+> Ellen Spertus
+> Junzhong Ji
+> Gianluca Demartini
+> Paul-Alexandru Chirita
+> Santiago Melia
+> Bay-Wei Chang
+> Zheng Chen
+> Corin R. Anderson
+> Juan Carlos Preciado
+> Mukund Raghavachari
+> Uwe Zdun
+> Baoning Wu
+> San Murugesan
+> Junghoo Cho
+> Niels Olof Bouvin
+> Cheuk Hang Ng
+> Stefano Paraboschi
+> Paul De Bra
+> Steffen Staab
+> Debora Donato
+> Maria-Esther Vidal
+> Frank Wehner
+> Augusto Pucci
+> Jaime Gomez
+> I. V. Ramakrishnan
+> Roberto J. Bayardo Jr.
+> Katsumi Tanaka
+> Yisheng Dong
+> Daniel Lowd
+> Qing Li
+> Chris Burges
+> Paolo Papotti
+> Jussi Myllymaki
+> Carlos Castillo
+> Antonio Picariello
+> Nenad Stojanovic
+> Peng Han
+> Tomonari Kamba
+> Jeffrey Dean
+> Ippokratis Pandis
+> Long Wang 0002
+> Baoshi Yan
+> Peter Barna
+> Bebo White
+> Haifeng Liu
+> James E. Pitkow
+> Donald Kossmann
+> Sven Casteleyn
+> Hiroyuki Toda
+> Rajeev Gupta
+> Robert Cooley
+> Coral Calero
+> Peter Dolog
+> Ramakrishnan Srikant
+> Yuji Inoue
+> Emilia Mendes
+> Geert-Jan Houben
+> Vaclav Petricek
+> Angela Bonifati
+> Massimo Marchiori
+> Kenji Hatano
+> Evren Sirin
+> Wang-Pin Hsiung
+> Lennert Sloth
+> Marc Najork
+> Asuncion Gomez-Perez
+> Xiaoping Sun
+> Irene Celino
+> Boualem Benatallah
+> Sergey Brin
+> Omar Benjelloun
+> Yong Yu
+> Simon Lok
+> Vania Dimitrova
+> Evgeniy Gabrilovich
+> Sihem Amer-Yahia
+> Hisashi Miyamori
+> Piero Fraternali
+> Srinivas Vadrevu
+> Juan Vera
+> Carmine Gravino
+> Alessandro Campi
+> Andrew Tomkins
+> Stanley Kok
+> Gerhard Austaller
+> Jalal Mahmud
+> Daniel Schwabe
+> Luis Sanchez Fernandez
+> Georges Dupret
+> Lloyd Rutledge
+> Ning Zhang 0003
+> Andreas Schroeder
+> James A. Hendler
+> Brian D. Davison
+> Marcus Fontoura
+> Giuseppe Scanniello
+> Rohit Khare
+> Hamish Cunningham
+> Athula Ginige
+> Mike Perkowitz
+> Kentaro Toyama
+> Filomena Ferrucci
+> Mukund Deshpande
+> Fabrizio Silvestri
+> Vladimir Soroka
+> Bing Liu
+> Jia Hu
+> Nick Russell
+> Sougata Mukherjea
+> Jonathan Robie
+> Raymond Y. K. Lau
+> Belle L. Tseng
+> Ricardo A. Baeza-Yates
+> Savitha Srinivasan
+> Mario T. Schlosser
+> Ronny Lempel
+> Joseph A. Konstan
+> Juliana Freire
+> Oren Etzioni
+> Makoto Murata
+> Eytan Adar
+> Joan Fons
+> Gui-Rong Xue
+> Steve Lawrence
+> Natasa Milic-Frayling
+> Marco Brambilla
+> Silvia Mara Abrahao
+> Koraljka Golub
+> Yaoyong Li
+> Markus Keidl
+> Liangzhao Zeng
+> John C. Shafer
+> Orkut Buyukkokten
+> Gilad Mishne
+> Dunja Mladenic
+> George A. Mihaila
+> Jesper Juhne
+> Mourad Ouzzani
+> Fangfang Liu
+> Lars Backstrom
+> Vicente Luque Centeno
+> John J. Barton
+> Sridhar Rajagopalan
+> Olga De Troyer
+> Denilson Barbosa
+> Frank van Harmelen
+> Eric J. Glover
+> Kerry Rodden
+> Byeong Man Kim
+> Stefan Edlund
+> Nick Craswell
+> Shashank Pandit
+> David Huynh
+> Arnaud Sahuguet
+> Robert Tolksdorf
+> Jean-Sebastien Brunner
+> Richard Vdovjak
+> Zhuoqun Xu
+> Chi-Hang Chan
+> Victor Robles
+> Giovanni Toffetti Carughi
+> Davide Bolchini
+> Franco Scarselli
+> Aixin Sun
+> Christian Wiesner
+> Vassilis Plachouras
+> Lada Adamic
+> Patrick Schmitz
+> Nivio Ziviani
+> Tapan S. Parikh
+> Richard Segal
+> Maria S. Perez
+> Daniel J. Weitzner
+> Ji-Rong Wen
+> Gavin Smyth
+> Ziv Bar-Yossef
+> Quoc Vu
+> Roberto Posenato
+> Arturo Crespo
+> Mark Dredze
+> Wan Yeung Wong
+> Lei Wu
+> Barry Leiba
+> Klaus Meisner
+> Matias Urbieta
+> Magdalini Eirinaki
+> Chunnian Liu
+> Kuo Zhang
+> Paulo Braz Golgher
+> Wei Tang
+> Adam Jatowt
+> Jie Liu
+> Wolfgang Nejdl
+
+
+######## Cluster  1 #######
+> Haewoon Kwak
+> Eugene Hung
+> Hao Shang
+> Yih-Farn Chen
+> Lei Gao
+> Vittorio Scarano
+> Joel L. Wolf
+> Fred Douglis
+> Oliver Spatscheck
+> David M. Kristol
+> John M. Tracey
+> Arun Iyengar
+> Michele Colajanni
+> Giuseppe Di Fabbrizio
+> Balachander Krishnamurthy
+> Craig E. Wills
+> Michael Rabinovich
+> Martin F. Arlitt
+> Huamin Chen
+> Pablo Rodriguez
+> Valeria Cardellini
+> Amy Reibman
+
+
